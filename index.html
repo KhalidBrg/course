@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="fr">
+<style>
+/* Base styles */
+:root {
+    --primary-color: #007BFF;
+    --primary-dark: #0056B3;
+    --secondary-color: #FFC107;
+    --secondary-dark: #E0A800;
+    --bg-light: #F8F9FA;
+    --bg-dark: #FFFFFF;
+    --text-color: #212529;
+    --text-secondary: #6C757D;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header.main-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    height: 40px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Banner */
+#banniere {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('banner-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-top: 0;
+}
+
+#banniere h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#banniere p {
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-dark);
+}
+
+/* Sections */
+section {
+    padding: 5rem 0;
+    background-color: var(--bg-dark);
+}
+
+section.bg-light {
+    background-color: var(--bg-light);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+/* Course overview */
+.apercu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.apercu-image {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.apercu-description {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.apercu-description h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.apercu-description p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.apercu-avantages {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    margin-top: 2rem;
+}
+
+.features-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.feature-item {
+    flex: 1 1 250px;
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: var(--bg-light);
+}
+
+.feature-icon {
+    background-color: var(--primary-color);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.feature-icon i {
+    font-size: 1.5rem;
+}
+
+.feature-item p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.modalites {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.modalites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.modalite-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.modalite-item i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    width: 40px;
+    text-align: center;
+}
+
+.modalite-item p {
+    margin: 0;
+}
+
+.chiffres-cles {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+    margin-top: 2rem;
+}
+
+.chiffres-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.chiffre-item {
+    text-align: center;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.chiffre {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Advantages grid */
+.avantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.avantage {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.avantage:hover {
+    transform: translateY(-5px);
+}
+
+.avantage i {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Course structure */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: var(--white);
+    border: 4px solid var(--primary-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-title {
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+    position: relative;
+    border-radius: 6px;
+    color: var(--white);
+    width: 45%;
+    left: 0;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--white);
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 45%;
+    left: 55%;
+    top: -80px;
+}
+
+.timeline-item:nth-child(even) .timeline-title {
+    left: 55%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    left: 0;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -16px;
+}
+
+/* Testimonials */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.testimonial img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+    }
+
+    .apercu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .apercu-image, .apercu-description, .apercu-avantages, .modalites, .chiffres-cles {
+        grid-column: 1 / 2;
+    }
+
+    .apercu-description {
+        grid-row: 2 / 3;
+    }
+
+    .apercu-avantages {
+        grid-row: 3 / 4;
+    }
+
+    .modalites {
+        grid-row: 4 / 5;
+    }
+
+    .chiffres-cles {
+        grid-row: 5 / 6;
+    }
+
+    .chiffres-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::after {
+        left: 15px;
+    }
+    
+    .timeline-title,
+    .timeline-content {
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-title,
+    .timeline-item:nth-child(even) .timeline-content {
+        left: 0;
+    }
+}
+
+/* Accessibility improvements */
+a {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+.feature-item:hover {
+    background-color: var(--bg-light);
+}
+
+/* Formulaire d'inscription */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.inscription-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    background-color: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.floating-label {
+    position: absolute;
+    top: 0.8rem;
+    left: 0;
+    font-size: 1rem;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus ~ .floating-label,
+.form-group input:not(:placeholder-shown) ~ .floating-label,
+.form-group select:focus ~ .floating-label,
+.form-group select:not(:placeholder-shown) ~ .floating-label {
+    top: -1.2rem;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+.btn-submit span {
+    font-weight: bold;
+}
+
+.btn-submit i {
+    font-size: 1.2rem;
+}
+
+/* Additional styles for better overall appearance */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improved spacing */
+section:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+/* Better contrast for accessibility */
+.timeline-title {
+    color: var(--white);
+    font-weight: bold;
+}
+
+/* Hover effects */
+.avantage, .testimonial, .chiffre-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avantage:hover, .testimonial:hover, .chiffre-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Improved form styles */
+.form-group input::placeholder,
+.form-group select::placeholder {
+    color: transparent;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+/* Accessibility focus styles */
+a:focus, button:focus, input:focus, select:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .main-header, .cta-button, .social-links, .btn-submit {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 2cm;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000FF;
+        --primary-dark: #000080;
+        --secondary-color: #FFD700;
+        --secondary-dark: #FFA500;
+        --text-color: #000000;
+        --bg-light: #FFFFFF;
+    }
+
+    .timeline::after {
+        background-color: #000000;
+    }
+
+    .feature-icon, .timeline-title {
+        background-color: #000000;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #4DA8DA;
+        --primary-dark: #3A7CA5;
+        --secondary-color: #FFC107;
+        --secondary-dark: #E0A800;
+        --bg-light: #2C3E50;
+        --bg-dark: #1A2530;
+        --text-color: #ECEFF1;
+        --text-secondary: #B0BEC5;
+        --white: #1A2530;
+    }
+
+    body {
+        background-color: var(--bg-dark);
+    }
+
+    .timeline::after {
+        background-color: var(--primary-color);
+    }
+
+    .feature-icon, .timeline-title {
+        background-color: var(--primary-color);
+    }
+
+    .testimonial, .chiffre-item, .avantage, .modalite-item {
+        background-color: var(--bg-light);
+    }
+}
+</style>
+<head class="main-header">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diplôme Professionnel en Maîtrise d'ouvrage et conduite de projets informatiques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Logo du cours" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#apercu">Aperçu</a></li>
+                    <li><a href="#structure">Programme</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
+                    <li><a href="#modalites">Modalités</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="banniere">
+            <div class="container">
+                <h1>Diplôme Professionnel en Maîtrise d'ouvrage et conduite de projets informatiques</h1>
+                <p>Apprenez à structurer, piloter et garantir le succès des projets informatiques en tant que Maîtrise d'Ouvrage (MOA).</p>
+                <a href="#inscription" class="cta-button">S'inscrire maintenant</a>
+            </div>
+        </section>
+
+        <section id="apercu">
+            <div class="container">
+                <h2>Aperçu du programme</h2>
+                <div class="apercu-grid">
+                    <div class="apercu-image">
+                        <img src="https://cdn.prod.website-files.com/632e548c441246a891512225/6489f6f5c3de2693cd42ac54_s%252F8241f201-639e-4cb4-8e5a-d400ae9fc91f.webp" alt="Gestion de projet informatique" class="main-image">
+                    </div>
+                    <div class="apercu-description">
+                        <p>Ce programme de formation en gestion de projet informatique vous permettra d'acquérir les compétences essentielles pour piloter efficacement des projets IT. Vous apprendrez à maîtriser les méthodologies, les outils et les meilleures pratiques du domaine.</p>
+                        <p>Que vous soyez débutant ou professionnel expérimenté cherchant à vous perfectionner, cette formation vous donnera les clés pour réussir dans le monde complexe de la gestion de projet informatique.</p>
+                    </div>
+                    <div class="apercu-avantages">
+                        <h2>Pourquoi suivre ce programme ?</h2>
+                        <ul class="features-list">
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <p>Comprendre les fondamentaux de la gestion de projet informatique et le rôle de la MOA</p>
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <p>Assurer le pilotage des différentes étapes d'un projet</p>
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <p>Gérer efficacement les parties prenantes et la communication</p>
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <p>Maîtriser les outils de suivi et de reporting</p>
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <p>Rédiger et valider les livrables clés du projet</p>
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <p>Gérer les risques et les changements tout au long du projet</p>
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <p>Collaborer efficacement avec la MOE et les équipes techniques</p>
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p>Assurer la qualité et la conformité des livrables</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modalites">
+                        <h2>Modalités pratiques</h2>
+                        <div class="modalites-grid">
+                            <div class="modalite-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <p><strong>Durée :</strong> 16 semaines</p>
+                            </div>
+                            <div class="modalite-item">
+                                <i class="fas fa-laptop"></i>
+                                <p><strong>Format :</strong> 100% en ligne</p>
+                            </div>
+                            <div class="modalite-item">
+                                <i class="fas fa-language"></i>
+                                <p><strong>Langue :</strong> Français</p>
+                            </div>
+                            <div class="modalite-item">
+                                <i class="fas fa-euro-sign"></i>
+                                <p><strong>Prix :</strong> 2200 €</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chiffres-cles">
+                        <h2>Chiffres clés</h2>
+                        <div class="chiffres-grid">
+                            <div class="chiffre-item">
+                                <span class="chiffre">75%</span>
+                                <p>des entreprises investissent dans la formation en gestion de projet</p>
+                            </div>
+                            <div class="chiffre-item">
+                                <span class="chiffre">25M</span>
+                                <p>de professionnels de la gestion de projet seront nécessaires d'ici 2030</p>
+                            </div>
+                            <div class="chiffre-item">
+                                <span class="chiffre">26%</span>
+                                <p>d'amélioration de la performance des projets après formation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences" class="bg-light">
+            <div class="container">
+                <h2>Les compétences que vous allez développer</h2>
+                <div class="avantages-grid">
+                    <div class="avantage">
+                        <i class="fas fa-project-diagram fa-3x"></i>
+                        <h3>Gestion de projet SI</h3>
+                        <p>Structurer, piloter et garantir la réussite des projets informatiques</p>
+                    </div>
+                    <div class="avantage">
+                        <i class="fas fa-file-alt fa-3x"></i>
+                        <h3>Rédaction de livrables</h3>
+                        <p>Élaborer des cahiers des charges fonctionnels clairs et complets</p>
+                    </div>
+                    <div class="avantage">
+                        <i class="fas fa-tasks fa-3x"></i>
+                        <h3>Pilotage de la recette</h3>
+                        <p>Valider et tester les solutions développées pour assurer leur conformité</p>
+                    </div>
+                    <div class="avantage">
+                        <i class="fas fa-users fa-3x"></i>
+                        <h3>Conduite du changement</h3>
+                        <p>Préparer et accompagner les équipes pour l'intégration des nouvelles solutions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="structure">
+            <div class="container">
+                <h2>Programme de formation</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">
+                            <h3>Module 1 : Les fondamentaux de la gestion de projet informatique</h3>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Définition et typologie des projets informatiques (standard, maintenance, agile, etc.)</li>
+                                <li>Étapes clés pilotées par la MOA et leurs livrables</li>
+                                <li>Relations entre Maîtrise d'Ouvrage (MOA) et Maîtrise d'Œuvre (MOE)</li>
+                                <li>Introduction aux outils de pilotage projet</li>
+                            </ul>
+                            <p><strong>Travaux pratiques :</strong> Identification des étapes clés et création d'un livrable de cadrage.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">
+                            <h3>Module 2 : Étude d'opportunité et de faisabilité</h3>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Définir les objectifs, enjeux et contraintes d'un projet</li>
+                                <li>Évaluer les scénarios et les seuils de rentabilité (ROI)</li>
+                                <li>Élaborer les livrables initiaux : fiche projet, note de cadrage, macro-planning et budget</li>
+                            </ul>
+                                                        <p><strong>Travaux pratiques :</strong> Analyse des opportunités et création d'un scénario avec évaluation de son ROI.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">
+                            <h3>Module 3 : Communication et organisation du projet</h3>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Lancer le projet : plan de communication, comités de pilotage et de projet</li>
+                                <li>Identifier les parties prenantes et choisir les canaux de communication</li>
+                            </ul>
+                            <p><strong>Travaux pratiques :</strong> Élaboration d'un plan de communication pour un projet fictif.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">
+                            <h3>Module 4 : Cahier des charges fonctionnel</h3>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Modélisation des processus métiers et analyse des risques</li>
+                                <li>Rédaction des chapitres principaux du cahier des charges</li>
+                                <li>Gestion des priorités fonctionnelles et des clauses spécifiques à la sous-traitance</li>
+                            </ul>
+                            <p><strong>Travaux pratiques :</strong> Création d'un cahier des charges fonctionnel pour un cas réel.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">
+                            <h3>Module 5 : Recette fonctionnelle et validation</h3>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Méthodologie de recette : découpage, plans de test, jeux d'essai</li>
+                                <li>Validation des livrables : qualité, fonctionnalité, cycle de décision</li>
+                            </ul>
+                            <p><strong>Travaux pratiques :</strong> Élaboration d'un plan de recette et réalisation de tests.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">
+                            <h3>Module 6 : Conduite du changement et mise en œuvre</h3>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Identifier les acteurs du changement et les sources de résistance</li>
+                                <li>Élaborer les supports de formation et guides d'utilisation</li>
+                                <li>Planifier l'intégration du nouveau système dans l'organisation</li>
+                            </ul>
+                            <p><strong>Travaux pratiques :</strong> Études de cas sur la gestion du changement dans des projets SI.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">
+                            <h3>Module 7 : Planification et suivi de projet</h3>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Techniques d'estimation des charges (Delphi, points fonctionnels, etc.)</li>
+                                <li>Planification des tâches avec PERT et Gantt</li>
+                                <li>Organisation des réunions de suivi et gestion des équipes projet</li>
+                            </ul>
+                            <p><strong>Travaux pratiques :</strong> Création d'un planning projet détaillé et d'un tableau de suivi.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">
+                            <h3>Module 8 : Outils et logiciels pour la MOA</h3>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Outils de modélisation (Rose, AMC, Visio)</li>
+                                <li>Outils de maquettage et documentation</li>
+                                <li>Solutions de pilotage (MS Project) et de gestion documentaire</li>
+                            </ul>
+                            <p><strong>Travaux pratiques :</strong> Utilisation d'outils dédiés pour un projet fictif.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="temoignages" class="bg-light">
+            <div class="container">
+                <h2>Témoignages</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial">
+                        <img src="student1.jpg" alt="Amine L.">
+                        <blockquote>"Grâce à cette formation en gestion de projet, j'ai acquis des compétences solides pour mener des projets complexes, et je dirige aujourd'hui une équipe multidisciplinaire avec succès."</blockquote>
+                        <p>- Amine L., Chef de projet, Casablanca</p>
+                    </div>
+                    <div class="testimonial">
+                        <img src="student2.jpg" alt="Sofia B.">
+                        <blockquote>"Cette formation m'a permis de comprendre pleinement les responsabilités d'une maîtrise d'ouvrage et d'améliorer la coordination entre les différentes parties prenantes d'un projet."</blockquote>
+                        <p>- Sofia B., Responsable MOA, Marrakech</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="inscription">
+            <div class="container">
+                <h2>Inscrivez-vous maintenant</h2>
+                <div class="form-container">
+                    <form id="inscription-form" class="inscription-form">
+                        <div class="form-group">
+                            <input type="text" id="nom" name="nom" required>
+                            <label for="nom" class="floating-label">Nom</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="prenom" name="prenom" required>
+                            <label for="prenom" class="floating-label">Prénom</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email" class="floating-label">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="experience" name="experience" required>
+                                <option value="" disabled selected></option>
+                                <option value="debutant">Débutant</option>
+                                <option value="intermediaire">Intermédiaire</option>
+                                <option value="avance">Avancé</option>
+                            </select>
+                            <label for="experience" class="floating-label">Niveau d'expérience</label>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>S'inscrire</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2025 Nom de votre entreprise. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('inscription-form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Ici, vous pouvez ajouter le code pour envoyer les données du formulaire
+            alert('Inscription réussie !');
+        });
+    });
+    </script>
+</body>
+</html>
